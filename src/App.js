@@ -21,7 +21,7 @@ class App extends React.Component {
     this.state = {
       tasks: placeholderTasks,
       task: '',
-      id: Date.now(),
+      id: 0,
       completed: false,
     }
   }
@@ -42,7 +42,8 @@ class App extends React.Component {
 
   inputTask = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      id: Date.now()
     });
   }
 
