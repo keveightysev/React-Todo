@@ -19,7 +19,7 @@ class App extends React.Component {
     this.state = {
       tasks: placeholderTasks,
       task: '',
-      id: 0,
+      id: Date.now(),
       completed: false,
     }
   }
@@ -27,6 +27,20 @@ class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
+
+  addTask = e => {
+    e.preventDefault();
+    const newTask = {
+      task: this.state.task,
+      id: this.state.id,
+      completed: false
+    }
+
+    this.setState({
+      tasks: [...this.state.tasks, newTask],
+      task: '',
+    })
+  }
 
   inputTask = e => {
     this.setState({
@@ -47,7 +61,7 @@ class App extends React.Component {
         </div>
         <div className="add-task">
           <input type="text" value={this.state.task} onChange={this.inputTask} name="task" placeholder="Add task"/>
-          <button>Add</button>
+          <button onClick={this.addTask}>Add</button>
           <button>Clear Completed</button>
         </div>
       </div>
