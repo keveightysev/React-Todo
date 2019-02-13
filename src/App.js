@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 const placeholderTasks = [
   {
@@ -49,13 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoList tasks={this.state.tasks}/>
-        <div className="add-task">
-          <form onSubmit={this.addTask}>
-            <input type="text" value={this.state.task} onChange={this.inputTask} name="task" placeholder="Add task"/>
-            <button type="submit">Add</button>
-            <button>Clear Completed</button>
-          </form>
-        </div>
+        <TodoForm addTask={this.addTask} task={this.state.task} inputTask={this.inputTask}/>
       </div>
     );
   }
