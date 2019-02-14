@@ -1,6 +1,8 @@
 import React from 'react';
+
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+// import './components/TodoComponents/Todo.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -102,16 +104,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <TodoList 
-          tasks={this.state.tasks} 
-          markCompleted={this.markCompleted} 
-        />
+      <div className="container">
+        <h2>&#10004; GSD</h2>
         <TodoForm 
           addTask={this.addTask} 
           task={this.state.task} 
           inputTask={this.inputTask}
           clearCompleted={this.clearCompleted}
+        />
+        <TodoList 
+          tasks={this.state.tasks} 
+          markCompleted={this.markCompleted} 
         />
       </div>
     );

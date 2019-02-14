@@ -1,3 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    background: linear-gradient(135deg, lightgreen 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, lightgreen 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, lightgreen 25%, transparent 25%),
+    linear-gradient(45deg, lightgreen 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: green;
+}
+
+.container {
+    background: white;
+    height: 100%;
+    min-height: 600px;
+    max-width: 600px;
+    margin: 75px auto;
+    padding: 25px 50px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    margin: 0 0 10px;
+    font-family: 'Bree Serif', serif;
+    font-size: 5rem;
+}
+
+h2::first-letter {
+    color: green;
+    letter-spacing: -20px;
+}
+
 .done {
     text-decoration: line-through;
 }
