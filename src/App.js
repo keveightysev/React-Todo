@@ -47,11 +47,37 @@ class App extends React.Component {
     });
   }
 
+  markCompleted = taskId => {
+    this.setState({
+      tasks: this.state.tasks.map(task => {
+        if (taskId === task.id) {
+          return { ...task, completed: !task.completed };
+        }
+        return task;
+      })
+    })
+  }
+
+  clearCompleted = e => {
+    e.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.filter(task => !task.completed)
+    })
+  }
+
   render() {
     return (
       <div>
-        <TodoList tasks={this.state.tasks}/>
-        <TodoForm addTask={this.addTask} task={this.state.task} inputTask={this.inputTask}/>
+        <TodoList 
+          tasks={this.state.tasks} 
+          markCompleted={this.markCompleted} 
+        />
+        <TodoForm 
+          addTask={this.addTask} 
+          task={this.state.task} 
+          inputTask={this.inputTask}
+          clearCompleted={this.clearCompleted}
+        />
       </div>
     );
   }
