@@ -14,6 +14,7 @@ body {
     linear-gradient(45deg, lightgreen 25%, transparent 25%);
     background-size: 100px 100px;
     background-color: green;
+    font-family: 'Bree Serif', serif;
 }
 
 .container {
@@ -27,6 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 h2 {
@@ -112,6 +114,7 @@ button:focus {
     border-bottom: 1px dashed darkgray;
     display: flex;
     align-items: center;
+    padding: 10px 0;
 }
 
 .task p {
@@ -154,4 +157,9 @@ button:focus {
 	to {
 		transform: scaleX(1);
 	}
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
 }

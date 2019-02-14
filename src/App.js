@@ -116,6 +116,9 @@ class App extends React.Component {
           tasks={this.state.tasks} 
           markCompleted={this.markCompleted} 
         />
+        <footer>
+          <p>Made with <span role="img" aria-label="Cheese Wedge Emoji">&#129472;</span> by Kevin Smith</p>
+        </footer>
       </div>
     );
   }
