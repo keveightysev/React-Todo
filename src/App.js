@@ -2,27 +2,50 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
-const placeholderTasks = [
-  {
-    task: 'Organize Garage',
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: 'Bake Cookies',
-    id: 1528817084358,
-    completed: false
-  }
-];
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: placeholderTasks,
+      tasks: [{task:'Take over the world', id: Date.now(), completed: false}],
       task: '',
       id: 0,
       completed: false,
+    }
+  }
+
+  componentDidMount = () => {
+    this.getLocalStorage();
+
+    window.addEventListener(
+      "beforeunload",
+      this.saveLocalStorage
+    )
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener(
+      "beforeunload",
+      this.saveLocalStorage
+      );
+  }
+
+  getLocalStorage = () => {
+    for (let key in this.state) {
+      if (localStorage.hasOwnProperty(key)) {
+        let value = localStorage.getItem(key);
+        try {
+          value = JSON.parse(value);
+          this.setState({ [key]: value });
+        } catch (e) {
+          this.setState ({ [key]: value });
+        }
+      }
+    }
+  }
+
+  saveLocalStorage = () => {
+    for (let key in this.state) {
+      localStorage.setItem(key, JSON.stringify(this.state[key]));
     }
   }
 
@@ -32,12 +55,19 @@ class App extends React.Component {
       task: this.state.task,
       id: this.state.id,
       completed: false
-    }
+    };
+
+    const tasks = [...this.state.tasks];
+
+    tasks.push(newTask);
 
     this.setState({
-      tasks: [...this.state.tasks, newTask],
-      task: '',
-    })
+      tasks,
+      task: ''
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("task", "")
   }
 
   inputTask = e => {
@@ -45,6 +75,8 @@ class App extends React.Component {
       [e.target.name]: e.target.value,
       id: Date.now()
     });
+
+    localStorage.setItem(e.target.name, e.target.value);
   }
 
   markCompleted = taskId => {
@@ -60,9 +92,12 @@ class App extends React.Component {
 
   clearCompleted = e => {
     e.preventDefault();
+    const updatedTasks = this.state.tasks.filter(task => !task.completed)
     this.setState({
-      tasks: this.state.tasks.filter(task => !task.completed)
+      tasks: updatedTasks
     })
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 
   render() {
