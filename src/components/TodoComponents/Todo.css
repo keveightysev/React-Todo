@@ -1,4 +1,4 @@
-* {
+*, *:after, *:before {
     box-sizing: border-box;
 }
 
@@ -100,6 +100,58 @@ button:focus {
     width: 215px;
 }
 
+.task-list {
+    width: 100%;
+}
+
+.task {
+    font-family: 'Bree Serif', serif;
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px dashed darkgray;
+    display: flex;
+    align-items: center;
+}
+
+.task p {
+    margin: 0;
+}
+
+.check {
+    width: auto;
+    margin: 5px 10px 0 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: white;
+}
+
 .done {
-    text-decoration: line-through;
+    position: relative;
+    font-style: italic;
+    color: darkgray;
+    
+}
+
+.done:before {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 102%;
+	height: 2px;
+    background: rgb(255, 0, 0, .5);
+    top: 50%;
+	animation: done 1s cubic-bezier(.55, 0, .1, 1) 1;
+    transition: transform 0.5s cubic-bezier(.55, 0, .1, 1);
+    transform: scaleX(1);
+	transform-origin: center left;
+}
+
+@keyframes done {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
 }
