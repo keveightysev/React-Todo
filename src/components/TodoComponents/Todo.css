@@ -40,6 +40,66 @@ h2::first-letter {
     letter-spacing: -20px;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%
+}
+
+.add {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input {
+    height: 40px;
+    width: 80%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid darkgray;
+    border-right: none;
+    font-size: 2rem;
+    color: green;
+    font-family: 'Bree Serif', serif;
+    padding-left: 10px;
+}
+
+input::placeholder {
+    color: darkgray;
+}
+
+input:focus {
+    outline: 0;
+    border-color: green;
+}
+
+button {
+    cursor: pointer;
+    height: 40px;
+    background: green;
+    border: 1px solid darkgray;
+    font-family: 'Bree Serif', serif;
+    font-size: 2rem;
+    color: white;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.submit {
+    width: 20%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.clear {    
+    border-radius: 10px;
+    width: 215px;
+}
+
 .done {
     text-decoration: line-through;
 }
