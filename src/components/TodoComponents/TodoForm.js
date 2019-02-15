@@ -9,7 +9,9 @@ const TodoForm = (props) => {
               value={props.task} 
               onChange={props.inputTask} 
               name="task" 
-              placeholder="Add task"/>
+              placeholder="Add task"
+              required
+              />
             <button className="submit">Add</button>
           </div>
           <button type="button" onClick={props.clearCompleted} className="clear">Clear Completed</button>
