@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+input[type=text], input[type=button], input[type=button] {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
 html {
     height: 100%;
     font-size: 62.5%;
@@ -55,7 +61,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-input {
+input[type=text] {
     height: 40px;
     width: 80%;
     border-top-left-radius: 10px;
@@ -130,10 +136,13 @@ button:focus {
 
 .check {
     width: auto;
-    margin: 5px 10px 0 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-color: white;
+    margin: 3px 10px 0 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 3px;
+    overflow:hidden;
+    background: white;
 }
 
 .done {
@@ -184,16 +193,25 @@ a:hover {
     transition: .25s ease;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 400px) {    
     .container {
         margin-top: 20px;
         padding: 15px 20px;
     }
+
     .form {
         width: 100%;
     }
 
     .clear {
-        width: 170px;
+        width: 160px;
+    }
+    
+    input[type=text] {
+        transform: translateY(1px);
+    }
+
+    button {
+        font-size: 1.6rem;
     }
 }
