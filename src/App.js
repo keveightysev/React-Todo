@@ -8,7 +8,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: [{task:'Take over the world', id: Date.now(), completed: false}],
+      tasks: [
+        {task:'Take over the world', id: Date.now(), completed: false}, 
+        {task: 'Add a new task!', id: Date.now() + 1, completed: false},
+        {task: 'This is a completed task', id: Date.now() + 2, completed: true}
+      ],
       task: '',
       id: 0,
       completed: false,
@@ -105,7 +109,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h2>&#10004; GSD</h2>
+        <h2><span className="green">&#10004;</span> GSD</h2>
         <TodoForm 
           addTask={this.addTask} 
           task={this.state.task} 
@@ -117,7 +121,7 @@ class App extends React.Component {
           markCompleted={this.markCompleted} 
         />
         <footer>
-          <p>Made with <span role="img" aria-label="Cheese Wedge Emoji">&#129472;</span> by Kevin Smith</p>
+          <p>Made with <span role="img" aria-label="Cheese Wedge Emoji">&#129472;</span> by <a href="http://www.iridigital.com" target="_blank" rel="noopener noreferrer">Kevin Smith</a></p>
         </footer>
       </div>
     );
