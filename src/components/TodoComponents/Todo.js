@@ -1,8 +1,12 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = (props) => {
     return (
-        <p>{props.task.task} - {props.task.id}</p>
+        <div className={`task`} onClick={() => props.markCompleted(props.task.id)}>
+        <input type="checkbox" className="check" checked={props.task.completed ? true : false} />
+        <p className={`task-text`}><span className={props.task.completed ? 'done' : null}>{props.task.task}</span></p>
+        </div>
     );
 }
 

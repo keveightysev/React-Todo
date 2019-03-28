@@ -1,0 +1,221 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+input[type=text], input[type=button], input[type=button] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    background: linear-gradient(135deg, lightgreen 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, lightgreen 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, lightgreen 25%, transparent 25%),
+    linear-gradient(45deg, lightgreen 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: green;
+    font-family: 'Bree Serif', serif;
+}
+
+.container {
+    background: white;
+    height: 100%;
+    min-height: 600px;
+    max-width: 600px;
+    margin: 75px auto;
+    padding: 25px 50px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+h2 {
+    margin: 0 0 10px;
+    font-family: 'Bree Serif', serif;
+    font-size: 5rem;
+}
+
+.green {
+    color: green;
+    letter-spacing: -15px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%
+}
+
+.add {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input[type=text] {
+    height: 40px;
+    width: 80%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid darkgray;
+    border-right: none;
+    font-size: 2rem;
+    color: green;
+    font-family: 'Bree Serif', serif;
+    padding-left: 10px;
+}
+
+input::placeholder {
+    color: darkgray;
+}
+
+input:focus {
+    outline: 0;
+    border-color: green;
+}
+
+button {
+    cursor: pointer;
+    height: 40px;
+    background: green;
+    border: 1px solid darkgray;
+    font-family: 'Bree Serif', serif;
+    font-size: 2rem;
+    color: white;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.submit {
+    width: 20%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.clear {    
+    border-radius: 10px;
+    width: 215px;
+}
+
+.task-list {
+    width: 100%;
+}
+
+.task {
+    cursor: pointer;
+    font-family: 'Bree Serif', serif;
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px dashed darkgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.task p {
+    margin: 0;
+}
+
+.task-text {
+    /* width: 95%; */
+    flex-grow: 1
+}
+
+.check {
+    width: auto;
+    margin: 3px 10px 0 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid black;
+    border-radius: 3px;
+    overflow:hidden;
+    background: white;
+}
+
+.done {
+    position: relative;
+    font-style: italic;
+    color: darkgray;
+    
+}
+
+.done:before {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 102%;
+	height: 2px;
+    background: rgb(255, 0, 0, .5);
+    top: 50%;
+	animation: done 1s cubic-bezier(.55, 0, .1, 1) 1;
+    transition: transform 0.5s cubic-bezier(.55, 0, .1, 1);
+    transform: scaleX(1);
+	transform-origin: center left;
+}
+
+@keyframes done {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+}
+
+a {
+    color:green;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .25s ease;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+    transition: .25s ease;
+}
+
+@media (max-width: 400px) {    
+    .container {
+        margin-top: 20px;
+        padding: 15px 20px;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    .clear {
+        width: 160px;
+    }
+    
+    input[type=text] {
+        transform: translateY(1px);
+    }
+
+    button {
+        font-size: 1.6rem;
+    }
+}
